@@ -1,0 +1,65 @@
+<!-- restUI.html -->
+
+
+<!DOCTYPE html>
+<html ng-app="restUI">
+<head>
+	<title>RestUI</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+	<script type="text/javascript" src="restUI.js"></script>
+	<link rel="stylesheet" type="text/css" href="restUI.css">
+
+</head>
+<body ng-controller= "appController">
+	
+	<div class="restBackground">
+
+		<div class="menus">
+
+			<ul>
+				<h3>Drink Menu</h3>
+				<li ng-click = "menuDrinkClick(drink)" ng-repeat="drink in myRestaurant.drinkMenu.menuArray">
+					{{drink.stringify()}}
+					<br/><br/>
+				</li>
+			</ul>
+
+			<ul>
+				<h3 >Chewable Menu</h3>
+				<li  ng-class="{yellow: trueValue==true, black: trueValue == false}" ng-click = "menuPlateClick(plate)" ng-repeat="plate in myRestaurant.foodMenu.menuArray">
+					
+					{{plate.stringify()}}
+					
+					<br/><br/>
+				</li>
+			</ul>
+
+
+				<ul>
+					<h3>My Order</h3>
+					<li ng-click="removeItem($index,item)" ng-repeat="item in myOrder.orderArray">
+						<!--could also have used track by $index-->
+
+						{{item.name}}
+						<br><br>
+					</li>
+				</ul>
+
+				<span ng-show="runningTotal">
+					<h4>Total: ${{runningTotal.toFixed(2)}}</h4>
+				</span>
+
+		</div>
+
+	</div>
+</body>
+
+</html>
+
+
+<!---
+	
+
+
+-->
