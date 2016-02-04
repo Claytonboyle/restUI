@@ -12,6 +12,20 @@
 
 }
 
+.userPreferencesBox {
+    display:inline-block;
+    padding:auto;
+    border:1px solid gray;
+    border-radius:5px;
+}
+
+.questions {
+    padding:10px;
+    margin:auto;
+    width:auto;
+    text-align:right;
+}
+
 .green{
 	color:green;
 }
