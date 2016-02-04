@@ -20,16 +20,20 @@
 			<ul>
 				<h3>Drink Menu</h3>
 				<li ng-click = "menuDrinkClick(drink)" ng-repeat="drink in myRestaurant.drinkMenu.menuArray">
+					<span ng-class="{green: isCompatibleDrink(drink)==true, black: isCompatibleDrinkn(drink) == false}">
 					{{drink.stringify()}}
+					</span>
 					<br/><br/>
 				</li>
 			</ul>
 
 			<ul>
 				<h3 >Chewable Menu</h3>
-				<li  ng-class="{yellow: trueValue==true, black: trueValue == false}" ng-click = "menuPlateClick(plate)" ng-repeat="plate in myRestaurant.foodMenu.menuArray">
+				<li  ng-click = "menuPlateClick(plate)" ng-repeat="plate in myRestaurant.foodMenu.menuArray">
 					
-					{{plate.stringify()}}
+				<!---check each plate compatibililty ahtne adjust class-->
+
+					<span ng-class="{green: isCompatible(plate)==true, black: isCompatible(plate) == false}">{{plate.stringify()}}</span>
 					
 					<br/><br/>
 				</li>

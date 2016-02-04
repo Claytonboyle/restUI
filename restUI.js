@@ -48,7 +48,7 @@ app.factory('restaurantFactory',[function(){
 
 
 		Drink.prototype.stringify = function(){
-			return (this.name+" is a drink for $"+this.price+". It consists of: "+this.ingredientsNameArray.join(", ")+". "+this.description);
+			return (this.name+" is a drink for $"+this.price.toFixed(2)+". It consists of: "+this.ingredientsNameArray.join(", ")+". "+this.description);
 		}
 
 		//----------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ app.factory('restaurantFactory',[function(){
 		}
 
 		Plate.prototype.stringify = function(){
-			return (this.name+" is a dish for $"+this.price+". It consists of: "+this.ingredientsNameArray.join(", ")+". "+this.description);
+			return (this.name+" is a dish for $"+this.price.toFixed(2)+". It consists of: "+this.ingredientsNameArray.join(", ")+". "+this.description);
 		}
 
 		//edit these functions to check the ingredients array rather that a property on the plate itself
@@ -189,7 +189,7 @@ app.factory('restaurantFactory',[function(){
 
 		var myRestaurant = new Restaurant("The Clam Shack","Upscale and exclusive destination for the rich and famous.",foodMenu,drinkMenu);
 		
-		var frank = new Customer("FRANK",false,true,false);
+		var frank = new Customer("FRANK",false,true,true);
 
 		return {
 			restaurant:myRestaurant,
@@ -208,7 +208,9 @@ app.controller('appController',['$scope', 'restaurantFactory',function($scope,re
 
 		var s=$scope;
 
-		s.trueValue = false; //compatible with customer
+		
+
+
 
 		s.myRestaurant=restaurantFactory.restaurant;
 		s.myCustomer = restaurantFactory.customer;
@@ -216,19 +218,38 @@ app.controller('appController',['$scope', 'restaurantFactory',function($scope,re
 		s.runningTotal = 0;
 		s.runningTotal = (Math.round(s.runningTotal*10))/10;
 
-		console.log(s.myOrder);
+		// console.log(s.myOrder);
 
-		console.log(s.myRestaurant);
-		console.log(s.myRestaurant.foodMenu.menuArray[0].stringify());
-		console.log(s.myRestaurant.drinkMenu.menuArray[0].stringify());
+		// console.log(s.myRestaurant);
+		// console.log(s.myRestaurant.foodMenu.menuArray[0].stringify());
+		// console.log(s.myRestaurant.drinkMenu.menuArray[0].stringify());
 
-		console.log("Vegan veggie?: "+s.myRestaurant.foodMenu.menuArray[3].isVeganCheck());
-		console.log("Gluten Free veggie?: "+s.myRestaurant.foodMenu.menuArray[3].isGlutenFreeCheck());
-		console.log("Gluten Free turkey?: "+s.myRestaurant.foodMenu.menuArray[2].isGlutenFreeCheck());
+		// console.log("Vegan veggie?: "+s.myRestaurant.foodMenu.menuArray[3].isVeganCheck());
+		// console.log("Gluten Free veggie?: "+s.myRestaurant.foodMenu.menuArray[3].isGlutenFreeCheck());
+		// console.log("Gluten Free turkey?: "+s.myRestaurant.foodMenu.menuArray[2].isGlutenFreeCheck());
 
-		console.log("Vegan ham?: "+s.myRestaurant.foodMenu.menuArray[0].isVeganCheck());
+		// console.log("Vegan ham?: "+s.myRestaurant.foodMenu.menuArray[0].isVeganCheck());
 
+		s.isCompatible = function(plate){
 
+			// console.log ("customer gf? :"+s.myCustomer.glutenFree + " Plate is gf?: "+ plate.name+" "+plate.isGlutenFreeCheck());
+
+			if (s.myCustomer.vegan == true && plate.isVeganCheck()==false)
+				return false;
+			else if (s.myCustomer.glutenFree == true && plate.isGlutenFreeCheck()==false)
+				return false;
+			else if (s.myCustomer.citrusFree == true && plate.isCitrusFreeCheck()==false)
+				return false;
+			else
+				return true;
+		}
+
+		s.isCompatibleDrink = function (drink){
+			if (s.myCustomer.citrusFree == true && drink.isCitrusFreeCheck()==false)
+				return false;
+			else
+				return true;
+		}
 
 		s.menuDrinkClick = function(drink){
 
