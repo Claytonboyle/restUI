@@ -1,4 +1,4 @@
-<!-- restUI.html -->
+ <!--restUI.html -->
 
 
 <!DOCTYPE html>
@@ -16,6 +16,36 @@
 	<div class="restBackground">
 
 		<div class="menus">
+
+			<div>
+				<form>vegan?
+					<input ng-model="veganShit" type="radio" value=1>Yes</input>
+					<input ng-model="veganShit" type="radio" value=0>No</input>
+					<br>
+				gluten free? 
+					<input ng-model="gShit" type="radio" value=1>Yes</input>
+					<input ng-model="gShit" type="radio" value=0>No</input>
+				
+					<br>
+
+				citrus free?
+					<input ng-model="cShit" type="radio" value=1>Yes</input>
+					<input ng-model="cShit" type="radio" value=0>No</input>
+					<button ng-click="updateCustomer()">Submit</button>
+				</form>
+
+				{{}}
+				<!-- 	<br>Vegan?
+					<input ng-model="myCustomer.vegan" type="radio" value="true">Yes</input>
+					<input ng-model="myCustomer.vegan" type="radio" value="false">No</input>
+					<br>Citrus Free?
+					<input ng-model="myCustomer.citrusFree" type="radio" value="true">Yes</input>
+					<input ng-model="myCustomer.citrusFree" type="radio" value="false">No</input>
+					<br><br>{{myCustomer.glutenFree}}  {{myCustomer.vegan}} {{myCustomer.citrusFree}}
+				</form> -->
+
+
+			</div>
 
 			<ul>
 				<h3>Drink Menu</h3>
@@ -69,4 +99,3 @@
 	
 
 
--->
