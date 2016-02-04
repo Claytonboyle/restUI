@@ -45,6 +45,14 @@ app.factory('restaurantFactory',[function(){
 			return true;
 		}
 
+		Drink.prototype.isGlutenFreeCheck = function(){
+			return true;
+		}
+
+		Drink.prototype.isVeganCheck = function(){
+			return true;
+		}
+
 
 
 		Drink.prototype.stringify = function(){
@@ -244,12 +252,12 @@ app.controller('appController',['$scope', 'restaurantFactory',function($scope,re
 				return true;
 		}
 
-		s.isCompatibleDrink = function (drink){
-			if (s.myCustomer.citrusFree == true && drink.isCitrusFreeCheck()==false)
-				return false;
-			else
-				return true;
-		}
+		// s.isCompatibleDrink = function (drink){
+		// 	if (s.myCustomer.citrusFree == true && drink.isCitrusFreeCheck()==false)
+		// 		return false;
+		// 	else
+		// 		return true;
+		// }
 
 		s.menuDrinkClick = function(drink){
 

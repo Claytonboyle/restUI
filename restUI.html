@@ -20,7 +20,7 @@
 			<ul>
 				<h3>Drink Menu</h3>
 				<li ng-click = "menuDrinkClick(drink)" ng-repeat="drink in myRestaurant.drinkMenu.menuArray">
-					<span ng-class="{green: isCompatibleDrink(drink)==true, black: isCompatibleDrinkn(drink) == false}">
+					<span ng-class="{green: isCompatible(drink)==true, black: isCompatible(drink) == false}">
 					{{drink.stringify()}}
 					</span>
 					<br/><br/>
@@ -45,8 +45,11 @@
 					<li ng-click="removeItem($index,item)" ng-repeat="item in myOrder.orderArray">
 						<!--could also have used track by $index-->
 
+						<span ng-class="{green: isCompatible(item)==true, red: isCompatible(item) == false}">
+
 						{{item.name}}
 						<br><br>
+						</span>
 					</li>
 				</ul>
 
