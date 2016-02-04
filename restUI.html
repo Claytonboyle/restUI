@@ -19,19 +19,18 @@
 
 			<div>
 				<form>vegan?
-					<input ng-model="veganShit" type="radio" value=1>Yes</input>
-					<input ng-model="veganShit" type="radio" value=0>No</input>
+					<input data-ng-model="myCustomer.vegan" type="radio" data-ng-value="true">Yes</input>
+					<input data-ng-model="myCustomer.vegan" type="radio" data-ng-value="false">No</input>
 					<br>
 				gluten free? 
-					<input ng-model="gShit" type="radio" value=1>Yes</input>
-					<input ng-model="gShit" type="radio" value=0>No</input>
-				
+					<input data-ng-model="myCustomer.glutenFree" type="radio" data-ng-value="true">Yes</input>
+					<input data-ng-model="myCustomer.glutenFree" type="radio" data-ng-value="false">No</input>
 					<br>
 
 				citrus free?
-					<input ng-model="cShit" type="radio" value=1>Yes</input>
-					<input ng-model="cShit" type="radio" value=0>No</input>
-					<button ng-click="updateCustomer()">Submit</button>
+					<input data-ng-model="myCustomer.citrusFree" type="radio" data-ng-value="true">Yes</input>
+					<input data-ng-model="myCustomer.citrusFree" type="radio" data-ng-value="false">No</input>
+					<br>
 				</form>
 
 				{{}}

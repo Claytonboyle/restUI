@@ -197,7 +197,7 @@ app.factory('restaurantFactory',[function(){
 
 		var myRestaurant = new Restaurant("The Clam Shack","Upscale and exclusive destination for the rich and famous.",foodMenu,drinkMenu);
 		
-		var frank = new Customer("FRANK",true,false,false);
+		var frank = new Customer("FRANK",false,false,false);
 
 		return {
 			restaurant:myRestaurant,
@@ -283,26 +283,7 @@ app.controller('appController',['$scope', 'restaurantFactory',function($scope,re
 			
 		}
 
-		s.updateCustomer = function(){
-				if (s.veganShit == 1)
-					s.myCustomer.vegan = true;
-				else if (s.veganShit == 0)
-					s.myCustomer.vegan = false;
 
-				if (s.gShit == 1)
-					s.myCustomer.glutenFree = true;
-				else if (s.veganShit == 0)
-					s.myCustomer.glutenFree = false;
-
-				if (s.cShit == 1)
-					s.myCustomer.citrusFree = true;
-				else if (s.cShit == 0)
-					s.myCustomer.citrusFree = false;
-
-				console.log(s.myCustomer);
-		}
-
-		s.veggieVegan = false;
 
 }]);
 
