@@ -12,6 +12,30 @@
 
 }
 
+.sizeM {
+    min-width:386px;
+}
+
+.flex {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.menuColor {
+    background-color:burlywood;
+    border-radius:5px;
+    padding:10px;
+}
+
+.orderWidth {
+    
+}
+.orderColor {
+    background-color:beige;
+    border-radius:5px;
+
+}
+
 .userPreferencesBox {
     display:inline-block;
     padding:auto;
@@ -37,3 +61,35 @@
 .red {
 	color:red;
 }
+
+@media (max-width: 454px) {
+  .sizeM {
+    min-height:790px;
+    max-height:1100px;
+  }
+
+  .orderWidth{
+    min-width:430px;
+  }
+}
+
+@media (min-width: 980px) {
+  .sizeM {
+    height:660px;
+    
+  }
+  .orderWidth{
+    min-width:1;
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
